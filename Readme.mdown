@@ -44,6 +44,7 @@ One example, the following file will add all files in /iOS/KKKeychain to the Xco
     "compiler_flags": [],
     "linker_flags": [],
     "embed_binaries": [],
+    "system_attributes": {"PushNotification":1, "BackgroundModes":1, "InAppPurchase":1},
     "plist": {
         "urltype" : [
             {
