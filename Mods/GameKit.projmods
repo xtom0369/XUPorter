@@ -9,5 +9,6 @@
     "folders": [],    
     "excludes": ["^.*.meta$", "^.*.mdown$", "^.*.pdf$"],
     "compiler_flags": [],
-    "linker_flags": []
+    "linker_flags": [],
+    "system_attributes": {}
 }

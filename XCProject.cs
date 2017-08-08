@@ -774,7 +774,30 @@ namespace UnityEditor.XCodeEditor
 				this.AddOtherLinkerFlags( flag );
 			}
 
-			Debug.Log ("Adding plist items...");
+            Debug.Log("Adding system_attributes...");
+		    foreach (DictionaryEntry entry in mod.system_attributes)
+		    {
+		        string key = (string) entry.Key;
+		        bool enable = System.Convert.ToInt32(entry.Value) == 1;
+
+                if (key.Equals("PushNotification"))
+		        {
+                    Debug.Log("Adding PushNotification attribut ... ");
+                    project.SetPushNotificationAttrEnable(enable);
+		        }
+                else if (key.Equals("BackgroundModes"))
+                {
+                    Debug.Log("Adding BackgroundModes attribut ... ");
+                    project.SetBackgroundModesAttrEnable(enable);
+                }
+                else if(key.Equals("InAppPurchase"))
+		        {
+                    Debug.Log("Adding InAppPurchase attribut ... ");
+                    project.SetInAppPurchaseAttrEnable(enable);
+		        }
+		    }
+
+		    Debug.Log("Adding plist items...");
 			string plistPath = this.projectRootPath + "/Info.plist";
 			XCPlist plist = new XCPlist (plistPath);
 			plist.Process(mod.plist);
